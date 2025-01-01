@@ -1,5 +1,11 @@
-controllers:
-    resource:
-        path: ../src/Controller/
-        namespace: App\Controller
-    type: attribute
+dashboard_top:
+    path: /home
+    controller: App\Controller\DashboardController::home
+
+user_signup:
+    path: /signup
+    controller: App\Controller\UserController::signup
+
+user_signin:
+    path: /signin
+    controller: App\Controller\UserController::signin
