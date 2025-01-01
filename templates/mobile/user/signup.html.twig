@@ -1,0 +1,15 @@
+{% extends 'mobile/_base_layout/base.html.twig' %}
+
+{% block title %}
+    サインアップ
+{% endblock %}
+
+{% block importmap %}
+    {{ importmap(['mobile-base-layout', 'mobile-user-signup']) }}
+{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

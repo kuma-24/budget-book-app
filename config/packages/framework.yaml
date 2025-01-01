@@ -8,6 +8,10 @@ framework:
 
     #esi: true
     #fragments: true
+    form:
+        csrf_protection:
+            enabled: true
+            field_name: 'custom_token_name'
 
 when@test:
     framework:
