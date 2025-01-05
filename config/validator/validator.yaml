@@ -1,0 +1,12 @@
+App\Entity\User:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: ['email']
+            message: 'このメールアドレスとユーザー名の組み合わせは既に使用されています。'
+    properties:
+        email:
+            - NotBlank: ~
+        password:
+            - Length:
+                min: 7
+                minMessage: "パスワードは7文字以上で入力してください。"

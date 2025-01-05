@@ -9,7 +9,6 @@ use App\Service\UserService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class UserController extends AbstractController
@@ -28,8 +27,6 @@ class UserController extends AbstractController
         $user = new User;
         $form = $this->createForm(UserSigninType::class, $user);
 
-        // dd($this->getUser());
-
         return $this->render("{$deviceType}/user/signin.html.twig", [
             'error' => $authenticationUtils->getLastAuthenticationError(),
             'form' => $form->createView(),
@@ -39,15 +36,15 @@ class UserController extends AbstractController
     public function signup(Request $request): Response
     {
         $deviceType = $request->attributes->get('device');
-        
+
         $user = new User;
         $form = $this->createForm(UserSignupType::class, $user);
         $form->handleRequest($request);
-        
+
         if ($form->isSubmitted() && $form->isValid()){
             $this->userService->registerUser($user);
 
-            return $this->redirectToRoute('user_singin');
+            return $this->redirectToRoute('user_signin');
         }
 
         return $this->render("{$deviceType}/user/signup.html.twig", [

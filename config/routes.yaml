@@ -1,4 +1,8 @@
 dashboard_top:
+    path: /
+    controller: App\Controller\DashboardController::top
+
+dashboard_home:
     path: /home
     controller: App\Controller\DashboardController::home
 
@@ -9,3 +13,11 @@ user_signup:
 user_signin:
     path: /signin
     controller: App\Controller\UserController::signin
+
+expense_transaction_index:
+    path: /expense
+    controller: App\Controller\ExpenseTransactionController::index
+
+expense_transaction_create:
+    path: /expense/create
+    controller: App\Controller\ExpenseTransactionController::create
