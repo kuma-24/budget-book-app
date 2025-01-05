@@ -4,18 +4,17 @@ namespace App\Service;
 
 use App\Entity\User;
 use App\Repository\UserRepository;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserService
 {
-    private $passwordHasher;
     private $userRepository;
+    private $passwordHasher;
 
     public function __construct(UserRepository $userRepository, UserPasswordHasherInterface $passwordHasher)
     {
-        $this->passwordHasher = $passwordHasher;
         $this->userRepository = $userRepository;
+        $this->passwordHasher = $passwordHasher;
     }
 
     public function registerUser(User $user)

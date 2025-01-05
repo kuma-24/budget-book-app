@@ -16,6 +16,14 @@ return [
         'path' => './assets/mobile/_base_layout/js/base.js',
         'entrypoint' => true,
     ],
+    'mobile-dashboard-top' => [
+        'path' => './assets/mobile/dashboard/js/dashboard_top.js',
+        'entrypoint' => true
+    ],
+    'mobile-dashboard-home' => [
+        'path' => './assets/mobile/dashboard/js/dashboard_home.js',
+        'entrypoint' => true
+    ],
     'mobile-user-signin' => [
         'path' => './assets/mobile/user/js/user_signin.js',
         'entrypoint' => true,
@@ -24,8 +32,4 @@ return [
         'path' => './assets/mobile/user/js/user_signup.js',
         'entrypoint' => true,
     ],
-    'mobile-dashboard-home' => [
-        'path' => './assets/mobile/dashboard/js/dashboard_home.js',
-        'entrypoint' => true
-    ]
 ];

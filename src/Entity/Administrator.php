@@ -39,9 +39,6 @@ class Administrator implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(targetEntity: ExpenseCategory::class, mappedBy: 'administrator')]
     private Collection $expenseCategories;
 
-    #[ORM\ManyToOne(inversedBy: 'administrators')]
-    private ?ExpensePaymentCategory $expensePaymentCategory = null;
-
     #[ORM\OneToOne(mappedBy: 'administrator', cascade: ['persist', 'remove'])]
     private ?AdministratorAccount $administratorAccount = null;
 
@@ -164,18 +161,6 @@ class Administrator implements UserInterface, PasswordAuthenticatedUserInterface
                 $expenseCategory->setAdministrator(null);
             }
         }
-
-        return $this;
-    }
-
-    public function getExpensePaymentCategory(): ?ExpensePaymentCategory
-    {
-        return $this->expensePaymentCategory;
-    }
-
-    public function setExpensePaymentCategory(?ExpensePaymentCategory $expensePaymentCategory): static
-    {
-        $this->expensePaymentCategory = $expensePaymentCategory;
 
         return $this;
     }

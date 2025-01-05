@@ -24,12 +24,6 @@ class ExpensePaymentCategory
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    /**
-     * @var Collection<int, Administrator>
-     */
-    #[ORM\OneToMany(targetEntity: Administrator::class, mappedBy: 'expensePaymentCategory')]
-    private Collection $administrators;
-
     #[ORM\Column]
     private ?\DateTimeImmutable $created_at = null;
 
@@ -43,7 +37,6 @@ class ExpensePaymentCategory
     public function __construct()
     {
         $this->expenseTransactions = new ArrayCollection();
-        $this->administrators = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -89,36 +82,6 @@ class ExpensePaymentCategory
     public function setName(string $name): static
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Administrator>
-     */
-    public function getAdministrators(): Collection
-    {
-        return $this->administrators;
-    }
-
-    public function addAdministrator(Administrator $administrator): static
-    {
-        if (!$this->administrators->contains($administrator)) {
-            $this->administrators->add($administrator);
-            $administrator->setExpensePaymentCategory($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAdministrator(Administrator $administrator): static
-    {
-        if ($this->administrators->removeElement($administrator)) {
-            // set the owning side to null (unless already changed)
-            if ($administrator->getExpensePaymentCategory() === $this) {
-                $administrator->setExpensePaymentCategory(null);
-            }
-        }
 
         return $this;
     }
