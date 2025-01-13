@@ -32,4 +32,12 @@ return [
         'path' => './assets/mobile/user/js/user_signup.js',
         'entrypoint' => true,
     ],
+    'mobile-expense-transaction-index' => [
+        'path' => './assets/mobile/expense_transaction/js/expense_transaction_index.js',
+        'entrypoint' => true,
+    ],
+    'mobile-expense-transaction-create' => [
+        'path' => './assets/mobile/expense_transaction/js/expense_transaction_create.js',
+        'entrypoint' => true,
+    ],
 ];

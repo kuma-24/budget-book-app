@@ -15,9 +15,9 @@ user_signin:
     controller: App\Controller\UserController::signin
 
 expense_transaction_index:
-    path: /expense
+    path: /expense_transaction/index
     controller: App\Controller\ExpenseTransactionController::index
 
 expense_transaction_create:
-    path: /expense/create
+    path: /expense_transaction/create
     controller: App\Controller\ExpenseTransactionController::create

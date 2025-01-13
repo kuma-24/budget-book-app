@@ -1,0 +1,11 @@
+{% extends 'mobile/_base_layout/base.html.twig' %}
+
+{% block importmap %}
+    {{ importmap(['mobile-base-layout', 'mobile-expense-transaction-create']) }}
+{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+{% endblock %}

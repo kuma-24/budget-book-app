@@ -16,28 +16,9 @@ class ExpenseTransactionRepository extends ServiceEntityRepository
         parent::__construct($registry, ExpenseTransaction::class);
     }
 
-    //    /**
-    //     * @return ExpenseTransaction[] Returns an array of ExpenseTransaction objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('e')
-    //            ->andWhere('e.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('e.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
-
-    //    public function findOneBySomeField($value): ?ExpenseTransaction
-    //    {
-    //        return $this->createQueryBuilder('e')
-    //            ->andWhere('e.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+    public function save(ExpenseTransaction $expenseTransaction)
+    {
+        $this->getEntityManager()->persist($expenseTransaction);
+        $this->getEntityManager()->flush();
+    }
 }
