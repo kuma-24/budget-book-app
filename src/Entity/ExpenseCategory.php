@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\ExpenseCategoryRepository;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -36,6 +37,8 @@ class ExpenseCategory
 
     public function __construct()
     {
+        $this->created_at = new DateTimeImmutable();
+        $this->updated_at = new DateTimeImmutable();
         $this->expenseTransactions = new ArrayCollection();
     }
 

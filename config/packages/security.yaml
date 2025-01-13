@@ -34,6 +34,8 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/home, roles: ['ROLE_ACTIVE_USER', 'ROLE_GENERAL_MEMBER'] }
+        - { path: ^/expense_transaction/index, roles: ['ROLE_ACTIVE_USER', 'ROLE_GENERAL_MEMBER'] }
+        - { path: ^/expense_transaction/create, roles: ['ROLE_ACTIVE_USER', 'ROLE_GENERAL_MEMBER'] }
 
 when@test:
     security:

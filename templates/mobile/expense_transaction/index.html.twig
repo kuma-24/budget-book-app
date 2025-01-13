@@ -1,0 +1,17 @@
+{% extends 'mobile/_base_layout/base.html.twig' %}
+
+{% block importmap %}
+    {{ importmap(['mobile-base-layout', 'mobile-expense-transaction-index']) }}
+{% endblock %}
+
+{% block body %}
+    <p>支出管理</p>
+    <br>
+    <a href="{{ path('expense_transaction_create') }}">支出作成</a>
+    <br>
+    <br>
+
+    <br>
+    <br>
+    <a href="{{ path('dashboard_home') }}">戻る</a>
+{% endblock %}
