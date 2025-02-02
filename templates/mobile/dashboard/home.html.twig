@@ -4,8 +4,21 @@
     {{ importmap(['mobile-base-layout', 'mobile-dashboard-home']) }}
 {% endblock %}
 
+{% block title %}ホーム{% endblock %}
+
 {% block body %}
-    <p>管理画面！！</p>
-    <br>
-    <a href="{{ path('expense_transaction_index') }}">支出管理</a>
+
+    {% include 'mobile/_base_layout/base_header.html.twig' with {'pageTitle': pageTitle, 'headerLinks': headerLinks} %}
+
+    <main>
+        <div>
+            <ul>
+                <li><a href="{{ path('expense_transaction_index') }}">支出管理</a></li>
+                <li><a href="{{ path('user_mypage_show') }}">アカウント管理</a></li>
+            </ul>
+        </div>
+    </main>
+
+    {% include 'mobile/_base_layout/base_footer.html.twig' with {'footerLinks': footerLinks} %}
+
 {% endblock %}

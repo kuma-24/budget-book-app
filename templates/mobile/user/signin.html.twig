@@ -1,19 +1,27 @@
 {% extends 'mobile/_base_layout/base.html.twig' %}
 
-{% block title %}
-    サインイン
-{% endblock %}
+{% block title %}サインイン{% endblock %}
 
 {% block importmap %}
     {{ importmap(['mobile-base-layout', 'mobile-user-signin']) }}
 {% endblock %}
 
 {% block body %}
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
-    
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-    {{ form_end(form) }}
+    <main>
+        <div>
+            <h1>ログイン</h1>
+        </div>
+
+        {% if error %}
+            <div>
+                <p>{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+            </div>
+        {% endif %}
+
+        <div>
+            {{ form_start(form) }}
+                {{ form_widget(form) }}
+            {{ form_end(form) }}
+        </div>
+    </main>
 {% endblock %}

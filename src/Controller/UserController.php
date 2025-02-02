@@ -51,4 +51,9 @@ class UserController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
+    public function logout(Request $request): void
+    {
+        throw new \LogicException('This should never be reached!');
+    }
 }

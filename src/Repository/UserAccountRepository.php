@@ -16,28 +16,23 @@ class UserAccountRepository extends ServiceEntityRepository
         parent::__construct($registry, UserAccount::class);
     }
 
-    //    /**
-    //     * @return UserAccount[] Returns an array of UserAccount objects
-    //     */
-    //    public function findByExampleField($value): array
-    //    {
-    //        return $this->createQueryBuilder('u')
-    //            ->andWhere('u.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->orderBy('u.id', 'ASC')
-    //            ->setMaxResults(10)
-    //            ->getQuery()
-    //            ->getResult()
-    //        ;
-    //    }
+    public function save(UserAccount $userAccount)
+    {
+        $this->getEntityManager()->persist($userAccount);
+        $this->getEntityManager()->flush();
+    }
 
-    //    public function findOneBySomeField($value): ?UserAccount
-    //    {
-    //        return $this->createQueryBuilder('u')
-    //            ->andWhere('u.exampleField = :val')
-    //            ->setParameter('val', $value)
-    //            ->getQuery()
-    //            ->getOneOrNullResult()
-    //        ;
-    //    }
+    public function findByUserAccount($userId)
+    {
+        $query = $this->getEntityManager()->createQueryBuilder();
+
+        $query
+            ->select('userAccount')
+            ->from('App\Entity\UserAccount', 'userAccount')
+            ->where('userAccount.user = :userId')
+            ->setParameter('userId', $userId)
+        ;
+
+        return $query->getQuery()->getResult();
+    }
 }

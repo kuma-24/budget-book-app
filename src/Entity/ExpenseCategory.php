@@ -35,6 +35,9 @@ class ExpenseCategory
     #[ORM\Column]
     private ?\DateTimeImmutable $updated_at = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?int $budgetAmount = null;
+
     public function __construct()
     {
         $this->created_at = new DateTimeImmutable();
@@ -121,6 +124,18 @@ class ExpenseCategory
     public function setUpdatedAt(\DateTimeImmutable $updated_at): static
     {
         $this->updated_at = $updated_at;
+
+        return $this;
+    }
+
+    public function getBudgetAmount(): ?int
+    {
+        return $this->budgetAmount;
+    }
+
+    public function setBudgetAmount(?int $budgetAmount): static
+    {
+        $this->budgetAmount = $budgetAmount;
 
         return $this;
     }

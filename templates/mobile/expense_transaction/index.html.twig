@@ -4,14 +4,79 @@
     {{ importmap(['mobile-base-layout', 'mobile-expense-transaction-index']) }}
 {% endblock %}
 
-{% block body %}
-    <p>支出管理</p>
-    <br>
-    <a href="{{ path('expense_transaction_create') }}">支出作成</a>
-    <br>
-    <br>
+{% block title %}支出一覧{% endblock %}
 
-    <br>
-    <br>
-    <a href="{{ path('dashboard_home') }}">戻る</a>
+{% block body %}
+
+    {% include 'mobile/_base_layout/base_header.html.twig' with {'pageTitle': pageTitle, 'headerLinks': headerLinks} %}
+
+    <main>
+        <div>
+            {{ form_start(searchForm) }}
+                {{ form_widget(searchForm) }}
+            {{ form_end(searchForm) }}
+        </div>
+
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>費目</th>
+                        <th>設定額</th>
+                        <th>使用額</th>
+                        <th>差額</th>
+                    </tr>
+                <thead>
+                <tbody>
+                    {% set resultTotalePrices = aggregateExpensesByCategory['resultTotalePrices'] %}
+                    {% set resultBudgetAmounts = aggregateExpensesByCategory['resultBudgetAmounts'] %}
+                    {% for expenseCategoryName, resultTotalePrice in resultTotalePrices %}
+                        <tr>
+                            <td>{{ expenseCategoryName }}</td>
+                            <td>{{ resultBudgetAmounts[expenseCategoryName] }}</td>
+                            <td>{{ resultTotalePrice }}</td>
+                            <td>{{ resultBudgetAmounts[expenseCategoryName] - resultTotalePrice }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>決済日</th>
+                        <th>決済者</th>
+                        <th>費目</th>
+                        <th>決済種別</th>
+                        <th>金額</th>
+                        <th>メモ</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for expenseTransaction in expenseTransactions %}
+                        <tr>
+                            <td>{{ expenseTransaction.id }}</td>
+                            <td>{{ expenseTransaction.paymentDate|date('Y-m-d H:i:s') }}</td>
+                            <td>{{ expenseTransaction.user.userAccount.lastName }}</td>
+                            <td>{{ expenseTransaction.expenseCategory.name }}</td>
+                            <td>{{ expenseTransaction.expensePaymentCategory.name }}</td>
+                            <td>{{ expenseTransaction.amount }}</td>
+                            <td>{{ expenseTransaction.note }}</td>
+                            <td>
+                                <a href="{{ path('expense_transaction_edit', { id: expenseTransaction.id }) }}">編集</a>
+                                <a onclick="return confirm('本当に削除しますか？');" href="{{ path('expense_transaction_delete', { id: expenseTransaction.id }) }}">削除</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    {% include 'mobile/_base_layout/base_footer.html.twig' with {'footerLinks': footerLinks} %}
+
 {% endblock %}

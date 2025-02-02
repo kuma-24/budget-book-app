@@ -1,0 +1,35 @@
+{% extends 'mobile/_base_layout/base.html.twig' %}
+
+{% block importmap %}
+    {{ importmap(['mobile-base-layout', 'mobile-user-account-create']) }}
+{% endblock %}
+
+{% block body %}
+    {{ form_start(form) }}
+        <div>
+            {{ form_label(form.first_name) }}
+            {{ form_widget(form.first_name) }}
+            {{ form_errors(form.first_name) }}
+        </div>
+        <div>
+            {{ form_label(form.last_name) }}
+            {{ form_widget(form.last_name) }}
+            {{ form_errors(form.last_name) }}
+        </div>
+        <div>
+            {{ form_label(form.first_name_kana) }}
+            {{ form_widget(form.first_name_kana) }}
+            {{ form_errors(form.first_name_kana) }}
+        </div>
+        <div>
+            {{ form_label(form.last_name_kana) }}
+            {{ form_widget(form.last_name_kana) }}
+            {{ form_errors(form.last_name_kana) }}
+        </div>
+        <div>
+            {{ form_label(form.birth_date) }}
+            {{ form_widget(form.birth_date) }}
+            {{ form_errors(form.birth_date) }}
+        </div>
+    {{ form_end(form) }}
+{% endblock %}

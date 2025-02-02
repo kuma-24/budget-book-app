@@ -1,15 +1,37 @@
 {% extends 'mobile/_base_layout/base.html.twig' %}
 
-{% block title %}
-    サインアップ
-{% endblock %}
+{% block title %}サインアップ{% endblock %}
 
 {% block importmap %}
     {{ importmap(['mobile-base-layout', 'mobile-user-signup']) }}
 {% endblock %}
 
 {% block body %}
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-    {{ form_end(form) }}
+    <main>
+        <div>
+            <h1>新規登録</h1>
+        </div>
+
+        <div>
+            {{ form_start(form) }}
+                <div>
+                    {{ form_label(form.email) }}
+                    {{ form_widget(form.email) }}
+                    {{ form_errors(form.email) }}
+                </div>
+
+                <div>
+                    {{ form_label(form.password.first) }}
+                    {{ form_widget(form.password.first) }}
+                    {{ form_errors(form.password.first) }}
+                </div>
+
+                <div>
+                    {{ form_label(form.password.second) }}
+                    {{ form_widget(form.password.second) }}
+                    {{ form_errors(form.password.second) }}
+                </div>
+            {{ form_end(form) }}
+        </div>
+    </main>
 {% endblock %}

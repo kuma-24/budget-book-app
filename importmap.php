@@ -32,12 +32,28 @@ return [
         'path' => './assets/mobile/user/js/user_signup.js',
         'entrypoint' => true,
     ],
+    'mobile-user-account-create' => [
+        'path' => './assets/mobile/user_account/js/user_account_create.js',
+        'entrypoint' => true,
+    ],
+    'mobile-user-account-show' => [
+        'path' => './assets/mobile/user_account/js/user_account_show.js',
+        'entrypoint' => true,
+    ],
     'mobile-expense-transaction-index' => [
         'path' => './assets/mobile/expense_transaction/js/expense_transaction_index.js',
         'entrypoint' => true,
     ],
     'mobile-expense-transaction-create' => [
         'path' => './assets/mobile/expense_transaction/js/expense_transaction_create.js',
+        'entrypoint' => true,
+    ],
+    'mobile-expense-transaction-show' => [
+        'path' => './assets/mobile/expense_transaction/js/expense_transaction_show.js',
+        'entrypoint' => true,
+    ],
+    'mobile-expense-transaction-edit' => [
+        'path' => './assets/mobile/expense_transaction/js/expense_transaction_edit.js',
         'entrypoint' => true,
     ],
 ];

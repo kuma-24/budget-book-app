@@ -1,0 +1,13 @@
+<footer>
+    <nav>
+        <ul>
+            {% for link in footerLinks %}
+                {% if link.id is not defined %}
+                    <li><a href="{{ path(link.path) }}">{{ link.name }}</a></li>
+                {% else %}
+                    <li><a href="{{ path(link.path, {id: link.id}) }}">{{ link.name }}</a></li>
+                {% endif %}    
+            {% endfor %}
+        </ul>
+    </nav>
+</footer>
