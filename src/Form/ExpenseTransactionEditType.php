@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\ExpenseCategory;
 use App\Entity\ExpensePaymentCategory;
 use App\Entity\ExpenseTransaction;
+use App\Entity\User;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
@@ -13,7 +14,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ExpenseTransactionCreateType extends AbstractType
+class ExpenseTransactionEditType extends AbstractType
 {
     private $formOptions = [
         'payment_date' => [
@@ -65,8 +66,6 @@ class ExpenseTransactionCreateType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => ExpenseTransaction::class,
-            'csrf_protection' => true,
-            'csrf_field_name' => '_token',
         ]);
     }
 }

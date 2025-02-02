@@ -1,0 +1,41 @@
+{% extends 'mobile/_base_layout/base.html.twig' %}
+
+{% block importmap %}
+    {{ importmap(['mobile-base-layout', 'mobile-expense-transaction-edit']) }}
+{% endblock %}
+
+{% block title %}支出詳細編集{% endblock %}
+
+{% block body %}
+    <main>
+        <div>
+            {{ form_start(editForm) }}
+                <div>
+                    {{ form_label(editForm.payment_date) }}
+                    {{ form_widget(editForm.payment_date) }}
+                    {{ form_errors(editForm.payment_date) }}
+                </div>
+                <div>
+                    {{ form_label(editForm.amount) }}
+                    {{ form_widget(editForm.amount) }}
+                    {{ form_errors(editForm.amount) }}
+                </div>
+                <div>
+                    {{ form_label(editForm.note) }}
+                    {{ form_widget(editForm.note) }}
+                    {{ form_errors(editForm.note) }}
+                </div>
+                <div>
+                    {{ form_label(editForm.expenseCategory) }}
+                    {{ form_widget(editForm.expenseCategory) }}
+                    {{ form_errors(editForm.expenseCategory) }}
+                </div>
+                <div>
+                    {{ form_label(editForm.expensePaymentCategory) }}
+                    {{ form_widget(editForm.expensePaymentCategory) }}
+                    {{ form_errors(editForm.expensePaymentCategory) }}
+                </div>
+            {{ form_end(editForm) }}
+        </div>
+    </main>
+{% endblock %}

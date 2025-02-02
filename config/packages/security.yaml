@@ -24,6 +24,9 @@ security:
                 username_parameter: user_signin[email]
                 password_parameter: user_signin[password]
                 default_target_path: /home
+            logout:
+                path: user_signout
+                target: dashboard_top
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 

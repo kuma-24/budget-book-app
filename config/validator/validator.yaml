@@ -10,3 +10,9 @@ App\Entity\User:
             - Length:
                 min: 7
                 minMessage: "パスワードは7文字以上で入力してください。"
+App\Entity\ExpenseTransaction:
+    properties:
+        note:
+            - Length:
+                min: 2
+                minMessage: "メモは2文字以上で入力してください。"

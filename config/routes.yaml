@@ -14,6 +14,17 @@ user_signin:
     path: /signin
     controller: App\Controller\UserController::signin
 
+user_signout:
+    path: /signout
+
+user_mypage_create:
+    path: /mypage/create
+    controller: App\Controller\UserAccountController::create
+
+user_mypage_show:
+    path: /mypage/show
+    controller: App\Controller\UserAccountController::show
+
 expense_transaction_index:
     path: /expense_transaction/index
     controller: App\Controller\ExpenseTransactionController::index
@@ -21,3 +32,15 @@ expense_transaction_index:
 expense_transaction_create:
     path: /expense_transaction/create
     controller: App\Controller\ExpenseTransactionController::create
+
+# expense_transaction_show:
+#     path: /expense_transaction/show/{id}
+#     controller: App\Controller\ExpenseTransactionController::show
+
+expense_transaction_edit:
+    path: /expense_transaction/edit/{id}
+    controller: App\Controller\ExpenseTransactionController::edit
+
+expense_transaction_delete:
+    path: /expense_transaction/delete/{id}
+    controller: App\Controller\ExpenseTransactionController::delete

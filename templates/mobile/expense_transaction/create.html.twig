@@ -4,8 +4,38 @@
     {{ importmap(['mobile-base-layout', 'mobile-expense-transaction-create']) }}
 {% endblock %}
 
+{% block title %}支出新規登録{% endblock %}
+
 {% block body %}
-    {{ form_start(form) }}
-        {{ form_widget(form) }}
-    {{ form_end(form) }}
+    <main>
+        <div>
+            {{ form_start(createForm) }}
+                <div>
+                    {{ form_label(createForm.payment_date) }}
+                    {{ form_widget(createForm.payment_date) }}
+                    {{ form_errors(createForm.payment_date) }}
+                </div>
+                <div>
+                    {{ form_label(createForm.amount) }}
+                    {{ form_widget(createForm.amount) }}
+                    {{ form_errors(createForm.amount) }}
+                </div>
+                <div>
+                    {{ form_label(createForm.note) }}
+                    {{ form_widget(createForm.note) }}
+                    {{ form_errors(createForm.note) }}
+                </div>
+                <div>
+                    {{ form_label(createForm.expenseCategory) }}
+                    {{ form_widget(createForm.expenseCategory) }}
+                    {{ form_errors(createForm.expenseCategory) }}
+                </div>
+                <div>
+                    {{ form_label(createForm.expensePaymentCategory) }}
+                    {{ form_widget(createForm.expensePaymentCategory) }}
+                    {{ form_errors(createForm.expensePaymentCategory) }}
+                </div>
+            {{ form_end(createForm) }}
+        </div>
+    </main>
 {% endblock %}

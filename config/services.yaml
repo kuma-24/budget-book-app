@@ -22,6 +22,9 @@ services:
     App\EventListener\DeviceListener:
         tags:
             - { name: kernel.event_listener, event: kernel.request, priority: 10 }
+    App\EventListener\ControllerListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller }
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
