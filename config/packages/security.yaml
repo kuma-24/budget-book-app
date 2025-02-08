@@ -24,9 +24,15 @@ security:
                 username_parameter: user_signin[email]
                 password_parameter: user_signin[password]
                 default_target_path: /home
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 604800  # 7日間（秒単位）
+                path: /
+                always_remember_me: true
             logout:
                 path: user_signout
                 target: dashboard_top
+                invalidate_session: true
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall
 
