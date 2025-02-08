@@ -44,6 +44,10 @@ class ExpenseTransactionRepository extends ServiceEntityRepository
             ;
         }
 
+        $query
+            ->orderBy('expenseTransaction.payment_date', 'DESC')
+        ;
+
         return $query->getQuery()->getResult();
     }
 

@@ -11,9 +11,13 @@ class DashboardService
                 'pageTitle' => '管理画面',
                 'headerLinks' => [
                     [
-                        'name' => 'マイページ',
+                        'name' => 'マイページ1',
                         'path' => 'user_mypage_show'
                     ],
+                    // [
+                    //     'name' => 'マイページ2',
+                    //     'path' => 'user_mypage_show'
+                    // ],
                 ],
             ],
         ];

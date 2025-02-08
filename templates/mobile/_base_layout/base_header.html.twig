@@ -1,12 +1,12 @@
 <header>
-    <h1>{{ pageTitle }}</h1>
-    <nav>
-        <ul>
+    <h1 class="header-logo">{{ pageTitle }}</h1>
+    <nav class="header-nav">
+        <ul class="header-nav-list">
             {% for link in headerLinks %}
                 {% if link.id is not defined %}
-                    <li><a href="{{ path(link.path) }}">{{ link.name }}</a></li>
+                    <li class="header-nav-list-item"><a href="{{ path(link.path) }}">{{ link.name }}</a></li>
                 {% else %}
-                    <li><a href="{{ path(link.path, {id: link.id}) }}">{{ link.name }}</a></li>
+                    <li class="header-nav-list-item"><a href="{{ path(link.path, {id: link.id}) }}">{{ link.name }}</a></li>
                 {% endif %}
             {% endfor %}
         </ul>

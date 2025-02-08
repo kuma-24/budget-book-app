@@ -17,9 +17,9 @@ class ExpenseTransactionIndexSearchType extends AbstractType
     private $formOptions = [
         'expenseCategory' => [
             'class' => ExpenseCategory::class,
-            'label' => '費目種別',
+            'label' => '費目',
             'choice_label' => 'name',
-            'placeholder' => '選択してください',
+            'placeholder' => '選択なし',
             'required' => false,
         ],
     ];
@@ -38,14 +38,14 @@ class ExpenseTransactionIndexSearchType extends AbstractType
             ->add('year', ChoiceType::class, [
                 'choices' => $yearChoices,
                 'label' => '年',
-                'placeholder' => '選択してください',
+                'placeholder' => '選択なし',
                 'data' => $currentYear,
                 'required' => false,
             ])
             ->add('month', ChoiceType::class, [
                 'choices' => $monthChoices,
                 'label' => '月',
-                'placeholder' => '選択してください',
+                'placeholder' => '選択なし',
                 'data' => $currentMonth,
                 'required' => false,
             ])

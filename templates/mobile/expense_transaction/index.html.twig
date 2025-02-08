@@ -11,14 +11,17 @@
     {% include 'mobile/_base_layout/base_header.html.twig' with {'pageTitle': pageTitle, 'headerLinks': headerLinks} %}
 
     <main>
-        <div>
-            {{ form_start(searchForm) }}
+        <details>
+            <summary>検索フォーム</summary>
+            <div id="searchContent" class="search-content">
+                {{ form_start(searchForm) }}
                 {{ form_widget(searchForm) }}
-            {{ form_end(searchForm) }}
-        </div>
+                {{ form_end(searchForm) }}
+            </div>
+        </details>
 
-        <div>
-            <table>
+        <div class="table-total-price-content">
+            <table class="table-total-price">
                 <thead>
                     <tr>
                         <th>費目</th>
@@ -26,7 +29,7 @@
                         <th>使用額</th>
                         <th>差額</th>
                     </tr>
-                <thead>
+                </thead>
                 <tbody>
                     {% set resultTotalePrices = aggregateExpensesByCategory['resultTotalePrices'] %}
                     {% set resultBudgetAmounts = aggregateExpensesByCategory['resultBudgetAmounts'] %}
@@ -34,39 +37,39 @@
                         <tr>
                             <td>{{ expenseCategoryName }}</td>
                             <td>{{ resultBudgetAmounts[expenseCategoryName] }}</td>
-                            <td>{{ resultTotalePrice }}</td>
-                            <td>{{ resultBudgetAmounts[expenseCategoryName] - resultTotalePrice }}</td>
+                            <td class="td-row-amount">{{ resultTotalePrice }}</td>
+                            <td class="td-row-amount">{{ resultBudgetAmounts[expenseCategoryName] - resultTotalePrice }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
 
-        <div>
-            <table>
+        <div class="table-expense-transactions-content">
+            <table class="table-expense-transactions">
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        {# <th>ID</th> #}
                         <th>決済日</th>
-                        <th>決済者</th>
+                        {# <th>決済者</th> #}
                         <th>費目</th>
-                        <th>決済種別</th>
+                        {# <th>決済種別</th> #}
                         <th>金額</th>
-                        <th>メモ</th>
+                        {# <th>メモ</th> #}
                         <th>操作</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for expenseTransaction in expenseTransactions %}
                         <tr>
-                            <td>{{ expenseTransaction.id }}</td>
-                            <td>{{ expenseTransaction.paymentDate|date('Y-m-d H:i:s') }}</td>
-                            <td>{{ expenseTransaction.user.userAccount.lastName }}</td>
+                            {# <td>{{ expenseTransaction.id }}</td> #}
+                            <td>{{ expenseTransaction.paymentDate | date('m-d') }}</td>
+                            {# <td>{{ expenseTransaction.user.userAccount.lastName }}</td> #}
                             <td>{{ expenseTransaction.expenseCategory.name }}</td>
-                            <td>{{ expenseTransaction.expensePaymentCategory.name }}</td>
-                            <td>{{ expenseTransaction.amount }}</td>
-                            <td>{{ expenseTransaction.note }}</td>
-                            <td>
+                            {# <td>{{ expenseTransaction.expensePaymentCategory.name }}</td> #}
+                            <td class="td-row-amount">{{ expenseTransaction.amount }}</td>
+                            {# <td>{{ expenseTransaction.note }}</td> #}
+                            <td class="td-row-operation">
                                 <a href="{{ path('expense_transaction_edit', { id: expenseTransaction.id }) }}">編集</a>
                                 <a onclick="return confirm('本当に削除しますか？');" href="{{ path('expense_transaction_delete', { id: expenseTransaction.id }) }}">削除</a>
                             </td>

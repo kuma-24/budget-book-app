@@ -9,19 +9,24 @@
 {% block body %}
     <main>
         <div>
-            <h1>ログイン</h1>
+            <h1 class="page-title">サインイン</h1>
         </div>
 
         {% if error %}
-            <div>
-                <p>{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+            <div class="error-message">
+                <p>{{ error.messageKey | trans(error.messageData, 'security') }}</p>
             </div>
         {% endif %}
 
-        <div>
+        <div class="singin-form-content">
             {{ form_start(form) }}
-                {{ form_widget(form) }}
+            {{ form_widget(form) }}
             {{ form_end(form) }}
+
+            <div class="cancel-button">
+                <a href="{{ path('dashboard_top') }}">キャンセル</a>
+            </div>
         </div>
+
     </main>
 {% endblock %}

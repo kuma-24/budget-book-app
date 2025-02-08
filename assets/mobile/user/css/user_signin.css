@@ -1,0 +1,82 @@
+body {
+    font-family: "Noto Sans JP", sans-serif;
+    background-color: #fffaf0;
+    color: #5a4634;
+    text-align: center;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    width: 100%;
+    margin: auto;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #8b5a2b;
+}
+
+.error-message {
+    background-color: #ff6b6b;
+    color: white;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    display: none; /* エラーがあるときだけ表示 */
+}
+
+.singin-form-content {
+    background-color: #ffebcd;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    width: 90%;
+    max-width: 400px;
+}
+
+form div {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d4a373;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #fffaf0;
+}
+
+button {
+    background-color: #ffdab9;
+    color: #5a4634;
+    font-size: 18px;
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #ffcba4;
+}
+
+.cancel-button {
+    margin-top: 30px;
+}
