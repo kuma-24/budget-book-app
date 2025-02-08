@@ -9,6 +9,10 @@
 {% block body %}
     <main>
         <div>
+            <h1>支出詳細編集</h1>
+        </div>
+
+        <div>
             {{ form_start(editForm) }}
                 <div>
                     {{ form_label(editForm.payment_date) }}
@@ -36,6 +40,10 @@
                     {{ form_errors(editForm.expensePaymentCategory) }}
                 </div>
             {{ form_end(editForm) }}
+        </div>
+
+        <div>
+            <a href="{{ path('expense_transaction_index') }}">キャンセル</a>
         </div>
     </main>
 {% endblock %}

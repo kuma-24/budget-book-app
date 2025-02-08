@@ -32,6 +32,7 @@ class ExpenseTransactionCreateType extends AbstractType
             'attr' => [
                 'placeholder' => '用途など',
             ],
+            'data' => '特に無し（あれば記載）',
         ],
         'expenseCategory' => [
             'class' => ExpenseCategory::class,

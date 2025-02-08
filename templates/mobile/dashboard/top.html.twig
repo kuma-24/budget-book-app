@@ -8,10 +8,11 @@
 
 {% block body %}
     <main>
-        <div>
-            <ul>
-                <li><a href="{{ path('user_signup') }}">サインアップ</a></li>
-                <li><a href="{{ path('user_signin') }}">サインイン</a></li>
+        <h1 class="app-title">家計簿サイト・ベータ版</h1>
+        <div class="auth-nav">
+            <ul class="auth-nav-list">
+                <li class="auth-nav-list-item"><a href="{{ path('user_signup') }}">サインアップ</a></li>
+                <li class="auth-nav-list-item"><a href="{{ path('user_signin') }}">サインイン</a></li>
             </ul>
         </div>
     </main>

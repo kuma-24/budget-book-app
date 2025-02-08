@@ -11,10 +11,10 @@
     {% include 'mobile/_base_layout/base_header.html.twig' with {'pageTitle': pageTitle, 'headerLinks': headerLinks} %}
 
     <main>
-        <div>
-            <ul>
-                <li><a href="{{ path('expense_transaction_index') }}">支出管理</a></li>
-                <li><a href="{{ path('user_mypage_show') }}">アカウント管理</a></li>
+        <div class="operation-nav">
+            <ul class="operation-nav-list">
+                <li class="operation-nav-list-item"><a href="{{ path('expense_transaction_index') }}">支出管理</a></li>
+                <li class="operation-nav-list-item"><a href="{{ path('user_mypage_show') }}">アカウント管理</a></li>
             </ul>
         </div>
     </main>

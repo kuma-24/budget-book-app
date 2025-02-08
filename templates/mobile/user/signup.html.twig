@@ -9,10 +9,10 @@
 {% block body %}
     <main>
         <div>
-            <h1>新規登録</h1>
+            <h1 class="page-title">サインアップ</h1>
         </div>
 
-        <div>
+        <div class="singup-form-content">
             {{ form_start(form) }}
                 <div>
                     {{ form_label(form.email) }}
@@ -32,6 +32,11 @@
                     {{ form_errors(form.password.second) }}
                 </div>
             {{ form_end(form) }}
+
+            <div class="cancel-button">
+                <a href="{{ path('dashboard_top') }}">キャンセル</a>
+            </div>
         </div>
+
     </main>
 {% endblock %}
